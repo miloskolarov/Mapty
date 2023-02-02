@@ -104,6 +104,18 @@ class App {
   _newWorkout(e) {
     e.preventDefault();
 
+    //Get data from form
+
+    ///check if data is valid
+
+    // if activity is running, create running object
+
+    //if activity is cycling, create cycling object
+
+    //add new objects to workout array
+
+    //hide form + clear input fields
+
     //Clear input fields
     inputDistance.value = inputDuration.value = inputCadence.value = 0;
     //Display marker
