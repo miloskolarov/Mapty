@@ -50,9 +50,9 @@ class Cycling extends Workout {
 const run1 = new Running([39, -12], 5.2, 24, 178);
 const cycling1 = new Cycling([39, -12], 27, 95, 523);
 console.log(run1, cycling1);
-new /* _______________________________________________________________________ */
+/* _______________________________________________________________________ */
 //Aplication
-(class App {
+class App {
   #map;
   #mapEvent;
 
@@ -124,6 +124,6 @@ new /* _______________________________________________________________________ *
       .setPopupContent('Workout')
       .openPopup();
   }
-})();
+}
 
 const app = new App();
