@@ -114,6 +114,10 @@ class App {
 
     //add new objects to workout array
 
+    //render workout  on map
+
+    //render workout on the list
+
     //hide form + clear input fields
 
     //Clear input fields
