@@ -80,7 +80,7 @@ class App {
 
     console.log(this.#mapEvent);
 
-    const { lat, lng } = mapEvent.latlng;
+    const { lat, lng } = this.#mapEvent.latlng;
 
     L.marker([lat, lng])
       .addTo(this.#map)
