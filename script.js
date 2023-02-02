@@ -60,10 +60,10 @@ class App {
 
     //Hendling clicks on map
 
-    this.#map.on('click', function (mapE) {});
+    this.#map.on('click', this._showForm.bind(this));
   }
 
-  _showForm() {
+  _showForm(mapE) {
     this.#mapEvent = mapE;
     form.classList.remove('hidden');
     inputDistance.focus();
