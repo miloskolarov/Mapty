@@ -35,16 +35,10 @@ class App {
     console.log(position);
     const { latitude } = position.coords;
     const { longitude } = position.coords;
-    console.log(
-      `https://www.google.com/maps/search/google+maps/@${latitude},${longitude},13z/data=!3m1!4b1`
-    );
-
     const coords = [latitude, longitude];
 
     this.#map = L.map('map').setView(coords, 13);
 
-    console.log(this);
-    //console.log(map);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -72,8 +66,6 @@ class App {
     //Clear input fields
     inputDistance.value = inputDuration.value = inputCadence.value = 0;
     //Display marker
-
-    console.log(this.#mapEvent);
 
     const { lat, lng } = this.#mapEvent.latlng;
 
