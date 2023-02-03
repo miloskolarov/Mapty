@@ -14,7 +14,7 @@ class Workout {
   _setDescription() {
     // prettier-ignore
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    // prettier-ignore
+
     this.description = `${this.type[0].toUpperCase()} ${this.type.slice(1)}
      on ${months[this.date.getMonth()]} ${this.date.getDate()}`;
   }
@@ -53,9 +53,6 @@ class Cycling extends Workout {
   }
 }
 
-// const run1 = new Running([39, -12], 5.2, 24, 178);
-// const cycling1 = new Cycling([39, -12], 27, 95, 523);
-// console.log(run1, cycling1);
 /* _______________________________________________________________________ */
 //Aplication
 
@@ -151,10 +148,6 @@ class App {
     const duration = +inputDuration.value;
     const { lat, lng } = this.#mapEvent.latlng;
     let workout;
-    ///check if data is valid
-
-    // if activity is running, create running object
-    //check if data is valid- use guard clause
 
     if (type === 'running') {
       const cadence = +inputCadence.value;
@@ -167,31 +160,22 @@ class App {
       workout = new Running([lat, lng], distance, duration, cadence);
     }
 
-    //if activity is cycling, create cycling object
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
       !validInputs(distance, duration, elevation) ||
         !allPositive(distance, duration);
       workout = new Cycling([lat, lng], distance, duration, elevation);
     }
-    //add new objects to workout array
 
     this.#workouts.push(workout);
-    console.log(workout);
-    //render workout  on map
+
     this._renderWorkoutMarker(workout);
 
-    //render workout on the list
     this._renderWorkout(workout);
-    //hide form + clear input fields
 
     this._hideForm();
 
-    //Clear input fields
     inputDistance.value = inputDuration.value = inputCadence.value = 0;
-    //Display marker
-
-    //Set local storage
 
     this._setLocalStorage();
   }
@@ -264,14 +248,12 @@ class App {
 
   _moveToPopup(e) {
     const workoutEl = e.target.closest('.workout');
-    console.log(workoutEl);
 
     if (!workoutEl) return;
 
     const workout = this.#workouts.find(
       work => work.id === workoutEl.dataset.id
     );
-    console.log(workout);
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
@@ -284,7 +266,6 @@ class App {
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
-    console.log(data);
 
     if (!data) return;
 
